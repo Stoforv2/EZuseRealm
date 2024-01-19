@@ -5,7 +5,8 @@
 ## 使用方法
 `wget --no-check-certificate -O realm.sh https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.sh && chmod +x realm.sh && ./realm.sh`
 
-默认安装目录为`/etc/realm`
+### 默认安装目录为
+`/etc/realm`
 
 简单示例配置如下：
 ```
