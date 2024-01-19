@@ -229,7 +229,7 @@ case "$num" in
   Restart_ct
   ;;
 7)
-  stat_ct
+  Stat_ct
   ;;
 *)
   echo "请输入正确数字 [0-6]"
