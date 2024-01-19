@@ -13,10 +13,10 @@ function checknew() {
   echo -n 是否更新\(y/n\)\:
   read checknewnum
   if test $checknewnum = "y"; then
-    cp -r /etc/realm /tmp/
+    cp -r /etc/realm/config.json /tmp/realm/
     Install_ct
-    rm -rf /etc/realm
-    mv /tmp/realm /etc/
+    rm -rf /etc/realm/config.json
+    mv /tmp/realm/config.json /etc/realm/
     systemctl restart realm
   else
     exit 0
