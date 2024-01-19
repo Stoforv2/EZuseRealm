@@ -2,7 +2,7 @@
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 Error="${Red_font_prefix}[错误]${Font_color_suffix}"
-shell_version="1.0.0"
+shell_version="1.0.1"
 ct_new_ver="2.5.2"
 realm_conf_path="/etc/realm/config.json"
 raw_conf_path="/etc/realm/rawconf"
@@ -208,37 +208,46 @@ function main_menu() {
 
 while true; do
   main_menu
-  read -e -p " 请输入数字 [0-8]:" num
+  read -e -p "请输入数字 [0-8]:" num
   case "$num" in
     0)
       exit 0
       ;;
     1)
       Install_ct
+      read -p "按回车键返回主菜单..."
       ;;
     2)
       checknew
+      read -p "按回车键返回主菜单..."
       ;;
     3)
       Uninstall_ct
+      read -p "按回车键返回主菜单..."
       ;;
     4)
       Start_ct
+      read -p "按回车键返回主菜单..."
       ;;
     5)
       Stop_ct
+      read -p "按回车键返回主菜单..."
       ;;
     6)
       Restart_ct
+      read -p "按回车键返回主菜单..."
       ;;
     7)
       Stat_ct
+      read -p "按回车键返回主菜单..."
       ;;
     8)
       update_sh
+      read -p "按回车键返回主菜单..."
       ;;
     *)
       echo "请输入正确数字 [0-8]"
+      read -p "按回车键继续..."
       ;;
   esac
 done
