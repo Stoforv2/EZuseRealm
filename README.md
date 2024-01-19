@@ -1,10 +1,11 @@
 自用Realm一键安装脚本，仅配置realm基本权限及添加system服务
-使用：wget --no-check-certificate -O realm.sh https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.sh && chmod +x realm.sh && ./realm.sh
+使用：`wget --no-check-certificate -O realm.sh https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.sh && chmod +x realm.sh && ./realm.sh`
 
 默认安装目录为/etc/realm
 
 简单示例配置如下：
-```{
+```
+{
   "log": {
   	"level": "warn"
   },
@@ -40,10 +41,11 @@
 ##      "listen_transport": "tls;cert=/etc/realm2/fullchain.crt;key=/etc/realm2/private.key", #自定义你证书的目录
 ##      "remote_transport": "" #
 ##    },
-##普通tcp+udp不加密转发```
+##普通tcp+udp不加密转发
     {
       "listen": "[::]:23456",
       "remote": "yourdomain.com:23456"
     }
     ]
 }
+```
