@@ -157,10 +157,6 @@ function Stop_ct() {
   echo "已停止"
 }
 function Restart_ct() {
-  rm -rf /etc/realm/config.json
-  confstart
-  writeconf
-  conflast
   systemctl restart realm
   echo "已重读配置并重启"
 }
