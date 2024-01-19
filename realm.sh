@@ -51,10 +51,10 @@ function Installation_dependency() {
   if [[ -z ${gzip_ver} ]]; then
     if [[ ${release} == "centos" ]]; then
       yum update
-      yum install -y gzip wget
+      yum install -y gzip wget tar
     else
       apt-get update
-      apt-get install -y gzip wget
+      apt-get install -y gzip wget tar
     fi
   fi
 }
@@ -111,7 +111,7 @@ function Install_ct() {
   if [[ ${addyn} == [Yy] ]]; then
     rm -rf realm-"$bit"-unknown-linux-"$libc_type".tar.gz
     wget --no-check-certificate https://github.com/zhboner/realm/releases/download/v"$ct_new_ver"/realm-"$bit"-unknown-linux-"$libc_type".tar.gz
-    gunzip realm-"$bit"-unknown-linux-"$libc_type".tar.gz
+    tar -xzf realm-"$bit"-unknown-linux-"$libc_type".tar.gz
     mv realm /usr/bin/realm
     chmod -R 777 /usr/bin/realm
     wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.service && chmod -R 777 realm.service && mv realm.service /usr/lib/systemd/system
@@ -119,7 +119,7 @@ function Install_ct() {
   else
     rm -rf realm-"$bit"-unknown-linux-"$libc_type".tar.gz
     wget --no-check-certificate https://github.com/zhboner/realm/releases/download/v"$ct_new_ver"/realm-"$bit"-unknown-linux-"$libc_type".tar.gz
-    gunzip realm-"$bit"-unknown-linux-"$libc_type".tar.gz
+    tar -xzf realm-"$bit"-unknown-linux-"$libc_type".tar.gz
     mv realm /usr/bin/realm
     chmod -R 777 /usr/bin/realm
     wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.service && chmod -R 777 realm.service && mv realm.service /usr/lib/systemd/system
