@@ -1,1 +1,1 @@
-自用Realm一键脚本
+自用Realm一键安装脚本，仅配置realm基本权限及添加system服务
