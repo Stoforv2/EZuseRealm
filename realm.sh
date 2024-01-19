@@ -160,6 +160,9 @@ function Restart_ct() {
   systemctl restart realm
   echo "已重读配置并重启"
 }
+function Stat_ct() {
+  systemctl status realm
+}
 
 update_sh() {
   ol_version=$(curl -L -s --connect-timeout 5 https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.sh | grep "shell_version=" | head -1 | awk -F '=|"' '{print $3}')
@@ -191,7 +194,7 @@ echo && echo -e "                 realm 一键安装脚本"${Red_font_prefix}[${
   功能: 安装 | 更新 | 快速重启
 
  ${Green_font_prefix}0.${Font_color_suffix} 退出脚本
- ————————————
+————————————
  ${Green_font_prefix}1.${Font_color_suffix} 安装 realm
  ${Green_font_prefix}2.${Font_color_suffix} 更新 realm
  ${Green_font_prefix}3.${Font_color_suffix} 卸载 realm
@@ -199,6 +202,8 @@ echo && echo -e "                 realm 一键安装脚本"${Red_font_prefix}[${
  ${Green_font_prefix}4.${Font_color_suffix} 启动 realm
  ${Green_font_prefix}5.${Font_color_suffix} 停止 realm
  ${Green_font_prefix}6.${Font_color_suffix} 重启 realm
+————————————
+ ${Green_font_prefix}7.${Font_color_suffix} 查看 realm 状态
 ————————————" && echo
 read -e -p " 请输入数字 [0-6]:" num
 case "$num" in
@@ -222,6 +227,9 @@ case "$num" in
   ;;
 6)
   Restart_ct
+  ;;
+7)
+  stat_ct
   ;;
 *)
   echo "请输入正确数字 [0-6]"
