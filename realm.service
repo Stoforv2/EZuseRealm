@@ -1,15 +1,20 @@
 [Unit]
 Description=realm
-After=network-online.target
-Wants=network-online.target systemd-networkd-wait-online.service
+After=network.target
+Wants=network.target
 
 [Service]
 Type=simple
+StandardError=none
 User=root
+LimitAS=infinity
+LimitCORE=infinity
+LimitNOFILE=102400
+LimitNPROC=102400
+ExecStart=/etc/realm/realm -c /etc/realm/config.json
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill $MAINPID
 Restart=always
 RestartSec=5
-DynamicUser=true
-ExecStart=/usr/bin/realm -C /etc/realm/config.json
-
 [Install]
 WantedBy=multi-user.target
