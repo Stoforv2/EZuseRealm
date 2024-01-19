@@ -138,14 +138,12 @@ function Install_ct() {
     rm -rf "$(pwd)"/realm
     rm -rf "$(pwd)"/realm.service
     rm -rf "$(pwd)"/config.json
-    rm -rf "$(pwd)"/realm.sh
   fi
 }
 function Uninstall_ct() {
   rm -rf /usr/bin/realm
   rm -rf /usr/lib/systemd/system/realm.service
   rm -rf /etc/realm
-  rm -rf "$(pwd)"/realm.sh
   echo "realm已经成功删除"
 }
 function Start_ct() {
@@ -187,51 +185,60 @@ update_sh() {
   fi
 }
 
-update_sh
-echo && echo -e "                 realm 一键安装脚本"${Red_font_prefix}[${shell_version}]${Font_color_suffix}"
-  ----------- Stoforv2 -----------
-  特性: (1)本脚本采用systemd及realm配置文件对realm进行管理
-  功能: 安装 | 更新 | 快速重启
+function main_menu() {
+  echo && echo -e "                 realm 一键安装脚本${Red_font_prefix}[${shell_version}]${Font_color_suffix}"
+  echo "  ----------- Stoforv2 -----------"
+  echo "  特性: (1)本脚本采用systemd及realm配置文件对realm进行管理"
+  echo "  功能: 安装 | 更新 | 快速重启"
 
- ${Green_font_prefix}0.${Font_color_suffix} 退出脚本
-————————————
- ${Green_font_prefix}1.${Font_color_suffix} 安装 realm
- ${Green_font_prefix}2.${Font_color_suffix} 更新 realm
- ${Green_font_prefix}3.${Font_color_suffix} 卸载 realm
-————————————
- ${Green_font_prefix}4.${Font_color_suffix} 启动 realm
- ${Green_font_prefix}5.${Font_color_suffix} 停止 realm
- ${Green_font_prefix}6.${Font_color_suffix} 重启 realm
-————————————
- ${Green_font_prefix}7.${Font_color_suffix} 查看 realm 状态
-————————————" && echo
-read -e -p " 请输入数字 [0-6]:" num
-case "$num" in
-0)
-  exit 0
-  ;;
-1)
-  Install_ct
-  ;;
-2)
-  checknew
-  ;;
-3)
-  Uninstall_ct
-  ;;
-4)
-  Start_ct
-  ;;
-5)
-  Stop_ct
-  ;;
-6)
-  Restart_ct
-  ;;
-7)
-  Stat_ct
-  ;;
-*)
-  echo "请输入正确数字 [0-6]"
-  ;;
-esac
+  echo -e " ${Green_font_prefix}0.${Font_color_suffix} 退出脚本"
+  echo "————————————"
+  echo -e " ${Green_font_prefix}1.${Font_color_suffix} 安装 realm"
+  echo -e " ${Green_font_prefix}2.${Font_color_suffix} 更新 realm"
+  echo -e " ${Green_font_prefix}3.${Font_color_suffix} 卸载 realm"
+  echo "————————————"
+  echo -e " ${Green_font_prefix}4.${Font_color_suffix} 启动 realm"
+  echo -e " ${Green_font_prefix}5.${Font_color_suffix} 停止 realm"
+  echo -e " ${Green_font_prefix}6.${Font_color_suffix} 重启 realm"
+  echo "————————————"
+  echo -e " ${Green_font_prefix}7.${Font_color_suffix} 查看 realm 状态"
+  echo -e " ${Green_font_prefix}8.${Font_color_suffix} 更新脚本"
+  echo "————————————" && echo
+}
+
+while true; do
+  main_menu
+  read -e -p " 请输入数字 [0-8]:" num
+  case "$num" in
+    0)
+      exit 0
+      ;;
+    1)
+      Install_ct
+      ;;
+    2)
+      checknew
+      ;;
+    3)
+      Uninstall_ct
+      ;;
+    4)
+      Start_ct
+      ;;
+    5)
+      Stop_ct
+      ;;
+    6)
+      Restart_ct
+      ;;
+    7)
+      Stat_ct
+      ;;
+    8)
+      update_sh
+      ;;
+    *)
+      echo "请输入正确数字 [0-8]"
+      ;;
+  esac
+done
