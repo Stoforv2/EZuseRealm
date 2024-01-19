@@ -21,20 +21,6 @@
     "accept_proxy_timeout": 5
   },
     "endpoints": [
-##中转机TLS示例
-##    {
-##      "listen": "[::]:port", #port为你中转机的入口
-##      "remote": "yourdomain1:port1", #domain1:port1为你落地机接收加密数据域名及端口
-##      "remote_transport": "tls;sni=yourdomain1" #sni填入你的域名
-##    },
-##落地机TLS+证书示例
-##    {
-##      "listen": "[::]:port1", #与中转机的port1保持一致
-##      "remote": "[::]:port2", #你转发的目标地址及端口
-##      "listen_transport": "tls;cert=/etc/realm2/fullchain.crt;key=/etc/realm2/private.key", #自定义你证书的目录
-##      "remote_transport": "" #
-##    },
-##普通tcp+udp不加密转发
     {
       "listen": "[::]:23456",
       "remote": "yourdomain.com:23456"
