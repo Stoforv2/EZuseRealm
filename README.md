@@ -59,4 +59,4 @@
 ### https://github.com/zhboner/realm
 
 ## 水平有限
-### 脚本参考https://github.com/KANIKIG/Multi-EasyGost/blob/v2/gost.sh编写
+### 脚本参考 https://github.com/KANIKIG/Multi-EasyGost/blob/v2/gost.sh 编写
