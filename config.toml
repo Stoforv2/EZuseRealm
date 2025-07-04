@@ -1,0 +1,27 @@
+[log]
+level = "warn"
+output = "/etc/realm/realm_toml.log"
+
+[dns]
+mode = "ipv4_and_ipv6"
+protocol = "tcp_and_udp"
+nameservers = ["8.8.8.8:53", "8.8.4.4:53"]
+min_ttl = 0
+max_ttl = 60
+cache_size = 256
+
+[network]
+no_tcp = false
+use_udp = true
+zero_copy = true
+fast_open = true
+tcp_timeout = 300
+udp_timeout = 30
+send_proxy = false
+send_proxy_version = 2
+accept_proxy = false
+accept_proxy_timeout = 5
+
+[[endpoints]]
+listen = "[yourdomain]:port"
+remote = "[yourdomain]:port"
