@@ -1,8 +1,7 @@
-# 自用Realm一键安装脚本
-
-## 仅安装配置realm基本权限及添加system服务
-
-## 测试环境为debian11，其余系统未知
+##
+自用Realm一键安装脚本
+仅安装配置realm基本权限及添加system服务
+测试环境为debian11，其余系统未知
 
 ## 使用方法
 `wget --no-check-certificate -O realm.sh https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.sh && chmod +x realm.sh && ./realm.sh`
@@ -52,8 +51,7 @@ listen = "[::]:port"
 remote = "yourdomain.com:port"
 ```
 
-## Realm作者
-### https://github.com/zhboner/realm
+## [Realm作者](https://github.com/zhboner/realm)
 
-## 水平有限
-### 脚本参考 https://github.com/KANIKIG/Multi-EasyGost/blob/v2/gost.sh 编写
+### 脚本韩@KANIKIG佬gost脚本改写 
+https://github.com/KANIKIG/Multi-EasyGost/blob/v2/gost.sh
