@@ -1,8 +1,8 @@
-##自用Realm一键安装脚本
+## 自用Realm一键安装脚本
 
-####仅安装配置realm基本权限及添加system服务
+#### 仅安装配置realm基本权限及添加system服务
 
-####测试环境为debian11，其余系统未知
+#### 测试环境为debian11，其余系统未知
 
 ## 使用方法
 `wget --no-check-certificate -O realm.sh https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.sh && chmod +x realm.sh && ./realm.sh`
