@@ -4,7 +4,7 @@ Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 Error="${Red_font_prefix}[错误]${Font_color_suffix}"
 shell_version="1.0.3"
 ct_new_ver="2.5.2"
-realm_conf_path="/etc/realm/config.json"
+realm_conf_path="/etc/realm/config.toml"
 raw_conf_path="/etc/realm/rawconf"
 function checknew() {
   checknew=$(realm -V 2>&1 | awk '{print $2}')
@@ -13,10 +13,10 @@ function checknew() {
   echo -n 是否更新\(y/n\)\:
   read checknewnum
   if test $checknewnum = "y"; then
-    cp -r /etc/realm/config.json /tmp/
+    cp -r /etc/realm/config.toml /tmp/
     Install_ct
-    rm -rf /etc/realm/config.json
-    mv /tmp/config.json /etc/realm/
+    rm -rf /etc/realm/config.toml
+    mv /tmp/config.toml /etc/realm/
     systemctl restart realm
   else
     exit 0
@@ -95,7 +95,7 @@ function check_file() {
 function check_nor_file() {
   rm -rf "$(pwd)"/realm
   rm -rf "$(pwd)"/realm.service
-  rm -rf "$(pwd)"/config.json
+  rm -rf "$(pwd)"/config.toml
   rm -rf /etc/realm/realm
   rm -rf /etc/systemd/system/realm.service
 }
@@ -117,7 +117,7 @@ function Install_ct() {
     mv realm /etc/realm/realm
     chmod -R 777 /etc/realm/realm
     wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.service && chmod -R 777 realm.service && mv realm.service /etc/systemd/system
-    wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/config.json && mv config.json /etc/realm && chmod -R 777 /etc/realm
+    wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/config.toml && mv config.toml /etc/realm && chmod -R 777 /etc/realm
   else
     rm -rf realm-"$bit"-unknown-linux-"$libc_type".tar.gz
     wget --no-check-certificate https://github.com/zhboner/realm/releases/download/v"$ct_new_ver"/realm-"$bit"-unknown-linux-"$libc_type".tar.gz
@@ -125,21 +125,21 @@ function Install_ct() {
     mv realm /etc/realm/realm
     chmod -R 777 /etc/realm/realm
     wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/realm.service && chmod -R 777 realm.service && mv realm.service /etc/systemd/system
-    wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/config.json && mv config.json /etc/realm && chmod -R 777 /etc/realm
+    wget --no-check-certificate https://raw.githubusercontent.com/Stoforv2/EZuseRealm/master/config.toml && mv config.toml /etc/realm && chmod -R 777 /etc/realm
   fi
 
   systemctl enable realm && systemctl restart realm
   echo "------------------------------"
-  if test -a /etc/realm -a /etc/systemctl/realm.service -a /etc/realm/config.json; then
+  if test -a /etc/realm -a /etc/systemctl/realm.service -a /etc/realm/config.toml; then
     echo "realm安装成功"
     rm -rf "$(pwd)"/realm
     rm -rf "$(pwd)"/realm.service
-    rm -rf "$(pwd)"/config.json
+    rm -rf "$(pwd)"/config.toml
   else
     echo "realm没有安装成功"
     rm -rf "$(pwd)"/realm
     rm -rf "$(pwd)"/realm.service
-    rm -rf "$(pwd)"/config.json
+    rm -rf "$(pwd)"/config.toml
   fi
 }
 function Uninstall_ct() {
