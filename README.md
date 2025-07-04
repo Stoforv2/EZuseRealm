@@ -53,5 +53,4 @@ remote = "yourdomain.com:port"
 
 ## [Realm作者](https://github.com/zhboner/realm)
 
-### 脚本韩@KANIKIG佬gost脚本改写 
-https://github.com/KANIKIG/Multi-EasyGost/blob/v2/gost.sh
+### 脚本韩[@KANIKIG](https://github.com/KANIKIG/Multi-EasyGost/blob/v2/gost.sh)佬gost脚本改写 
